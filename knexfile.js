@@ -1,36 +1,33 @@
 // @ts-check
 
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const migrations = {
-  directory: path.join(__dirname, 'server', 'migrations'),
+  directory: path.join(__dirname, "server", "migrations"),
 };
 
 export const development = {
-  client: 'sqlite3',
+  client: "sqlite3",
   connection: {
-    filename: path.resolve(__dirname, 'database.sqlite'),
+    filename: path.resolve(__dirname, "database.sqlite"),
   },
   useNullAsDefault: true,
   migrations,
 };
 
 export const test = {
-  client: 'sqlite3',
-  connection: ':memory:',
+  client: "sqlite3",
+  connection: ":memory:",
   useNullAsDefault: true,
   // debug: true,
   migrations,
 };
 
 export const production = {
-  client: 'sqlite3',
-  connection: {
-    filename: path.resolve(__dirname, 'database.sqlite'),
-  },
-  useNullAsDefault: true,
+  client: "pg",
+  connection: process.env.DATABASE_URL,
   migrations,
 };
