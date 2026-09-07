@@ -12,7 +12,7 @@
     "test": "jest --verbose --runInBand",
     "lint": "biome ci .",
     "lint:fix": "biome check --write .",
-    "build": "webpack",
+    "build": "vite build",
     "start": "fastify start server/plugin.js -l debug -P -o"
   },
   "jest": {
@@ -44,8 +44,8 @@
     "@fastify/static": "^10.1.2",
     "@fastify/view": "^12.0.0",
     "@hexlet/fastify-method-override": "git+https://github.com/hexlet-components/fastify-method-override.git",
+    "@tailwindcss/vite": "^4.3.3",
     "@vscode/sqlite3": "^5.1.2",
-    "bootstrap": "^5.3.8",
     "eta": "^4.6.0",
     "fastify": "^5.8.2",
     "fastify-cli": "^8.0.0",
@@ -64,11 +64,14 @@
     "pino-pretty": "^13.1.3",
     "qs": "^6.15.0",
     "sqlite3": "^6.0.1",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.2.2",
     "webpack": "^5.105.4"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.7",
     "@jest/globals": "^30.3.0",
+    "@tailwindcss/forms": "^0.5.11",
     "@types/jest": "^30.0.0",
     "@types/node": "^26.1.2",
     "css-loader": "^7.1.4",

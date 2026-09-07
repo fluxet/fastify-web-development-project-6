@@ -3,16 +3,16 @@
   const hasError = !it._.isEmpty(propertyErrors);
   const inputId = `data_${it.propertyName}`;
 %>
-<div class="mb-3">
-  <label for="<%= inputId %>"><%= it.propertyName %></label>
+<div class="mb-4">
+  <label class="mb-2 block text-sm font-medium text-slate-700" for="<%= inputId %>"><%= it.propertyName %></label>
   <input
-    class="form-control <%= hasError ? 'is-invalid' : '' %>"
+    class="block w-full rounded-md border px-3 py-2 text-slate-900 shadow-sm outline-none placeholder:text-slate-400 focus:ring-2 <%= hasError ? 'border-red-500 focus:border-red-500 focus:ring-red-200' : 'border-slate-300 focus:border-blue-600 focus:ring-blue-200' %>"
     id="<%= inputId %>"
     name="data[<%= it.propertyName %>]"
     type="<%= it.type ?? 'text' %>"
     value="<%= it._.get(it.entity, it.propertyName, '') %>"
   >
   <% if (hasError) { %>
-  <div class="invalid-feedback"><%= propertyErrors.map(({ message }) => message).join('. ') %></div>
+  <div class="mt-2 text-sm text-red-600"><%= propertyErrors.map(({ message }) => message).join('. ') %></div>
   <% } %>
 </div>

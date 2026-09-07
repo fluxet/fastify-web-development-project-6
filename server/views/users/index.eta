@@ -1,19 +1,21 @@
 <% layout("../layouts/application") %>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= it.t('views.users.id') %></th>
-      <th><%= it.t('views.users.email') %></th>
-      <th><%= it.t('views.users.createdAt') %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% it.users.forEach((user) => { %>
-    <tr>
-      <td><%= user.id %></td>
-      <td><%= user.email %></td>
-      <td><%= it.formatDate(user.createdAt) %></td>
-    </tr>
-    <% }) %>
-  </tbody>
-</table>
+<div class="overflow-hidden rounded-md border border-slate-200 bg-white">
+  <table class="min-w-full divide-y divide-slate-200">
+    <thead class="bg-slate-100">
+      <tr>
+        <th class="px-4 py-3 text-left text-sm font-semibold text-slate-700"><%= it.t('views.users.id') %></th>
+        <th class="px-4 py-3 text-left text-sm font-semibold text-slate-700"><%= it.t('views.users.email') %></th>
+        <th class="px-4 py-3 text-left text-sm font-semibold text-slate-700"><%= it.t('views.users.createdAt') %></th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-slate-200">
+      <% it.users.forEach((user) => { %>
+      <tr class="odd:bg-white even:bg-slate-50">
+        <td class="px-4 py-3 text-sm text-slate-700"><%= user.id %></td>
+        <td class="px-4 py-3 text-sm text-slate-700"><%= user.email %></td>
+        <td class="px-4 py-3 text-sm text-slate-700"><%= it.formatDate(user.createdAt) %></td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

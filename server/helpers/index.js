@@ -16,11 +16,11 @@ export default (app) => ({
       // case 'failure':
       //   return 'danger';
       case 'error':
-        return 'danger';
+        return 'border-red-200 bg-red-50 text-red-800';
       case 'success':
-        return 'success';
+        return 'border-green-200 bg-green-50 text-green-800';
       case 'info':
-        return 'info';
+        return 'border-blue-200 bg-blue-50 text-blue-800';
       default:
         throw new Error(`Unknown flash type: '${type}'`);
     }
